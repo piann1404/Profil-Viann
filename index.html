@@ -10,6 +10,7 @@
       font-family: 'Arial', sans-serif;
       background-color: #f8f8f8;
       color: #222;
+      overflow-x: hidden;
     }
 
     .container {
@@ -29,6 +30,8 @@
       padding: 80px;
       position: relative;
       z-index: 2;
+      animation: slideLeft 1.2s ease-out forwards;
+      opacity: 0;
     }
 
     .left h1 {
@@ -52,6 +55,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      animation: fadeIn 2s ease forwards;
+      opacity: 0;
     }
 
     .overlay {
@@ -68,6 +73,8 @@
       font-weight: bold;
       z-index: 2;
       position: relative;
+      animation: slideUp 1.5s ease-out forwards;
+      opacity: 0;
     }
 
     /* Segitiga miring */
@@ -80,6 +87,62 @@
       background: #fff;
       transform: skewX(-20deg);
       z-index: 2;
+      animation: grow 1.5s ease-out forwards;
+      opacity: 0;
+    }
+
+    /* Animasi */
+    @keyframes slideLeft {
+      from { transform: translateX(-100px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes grow {
+      from { transform: skewX(-20deg) scaleX(0); opacity: 0; }
+      to { transform: skewX(-20deg) scaleX(1); opacity: 1; }
+    }
+
+    /* 🔹 RESPONSIVE UNTUK HP */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .left {
+        align-items: center;
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+      .left h1 {
+        font-size: 1.8rem;
+      }
+
+      .left p {
+        font-size: 0.9rem;
+      }
+
+      .right {
+        height: 40vh;
+      }
+
+      .right h2 {
+        font-size: 2rem;
+      }
+
+      .diagonal {
+        display: none; /* disembunyikan di HP agar lebih rapi */
+      }
     }
   </style>
 </head>
