@@ -13,183 +13,139 @@
       scroll-behavior: smooth;
     }
 
-    h1, h2 {
-      font-family: 'Times New Roman', Times, serif;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-    p, li {
-      font-family: 'Times New Roman', Times, serif;
-      font-weight: normal;
-    }
-
-    nav {
+    header {
       position: fixed;
       top: 0;
-      left: 0;
       width: 100%;
-      background: rgba(0,0,0,0.8);
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 12px 0;
+      background: #000;
+      padding: 15px 0;
+      text-align: center;
       z-index: 1000;
-      backdrop-filter: blur(6px);
     }
-    nav a {
-      color: #f5f5f5;
+
+    header nav a {
+      margin: 0 15px;
+      color: #aaa;
       text-decoration: none;
-      margin: 6px 12px;
       font-weight: bold;
-      font-size: 1rem;
-      transition: color 0.3s;
     }
-    nav a:hover, nav a.active {
+
+    header nav a:hover,
+    header nav a.active {
       color: #FFD700;
     }
 
-    .fade-in {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 1s ease;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Cover */
     .cover {
       display: flex;
       flex-direction: row;
-      height: 100vh;
-      background: linear-gradient(135deg, #fff 50%, #1c1c1c 50%);
+      justify-content: center;
       align-items: center;
-      justify-content: space-between;
-      padding: 80px 40px 40px;
-    }
-    .cover-text {
-      max-width: 45%;
-    }
-    .cover-text h1 {
-      font-size: 3rem;
-      margin: 0;
-      color: #111;
-    }
-    .cover-text p {
-      margin-top: 10px;
-      font-size: 1.3rem;
-      color: #444;
-    }
-    .cover-photo {
-      max-width: 45%;
-      display: flex;
-      justify-content: center;
-    }
-    .cover-photo img {
-      width: 100%;
-      max-width: 400px;
-      border-radius: 14px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.6);
-      border: 4px solid #fff;
-    }
-
-    /* Section umum */
-    section {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 80px 20px 60px;
+      height: 100vh;
+      background: #1c1c1c;
+      padding: 20px;
       text-align: center;
     }
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
+
+    .cover-text {
+      flex: 1;
+      padding: 20px;
     }
-    section p, section li {
+
+    .cover-text h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    .cover-text p {
+      margin-top: 15px;
       font-size: 1.1rem;
-      line-height: 1.6;
+      color: #bbb;
     }
 
-    .about { background: linear-gradient(135deg, #1c1c1c, #2e2e2e); }
-    .education { background: linear-gradient(135deg, #2e2e2e, #3a3a3a); }
-    .skills { background: linear-gradient(135deg, #3a3a3a, #4a4a4a); }
-    .contact { background: linear-gradient(135deg, #4a4a4a, #555); }
+    .cover-photo {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-    .skills ul {
-      list-style: none;
-      padding: 0;
-      max-width: 600px;
+    .cover-photo img {
+      max-width: 300px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 900px;
       margin: auto;
-    }
-    .skills li {
-      margin: 10px 0;
-      padding: 12px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 8px;
+      border-bottom: 1px solid #333;
     }
 
-    .contact a {
+    section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
       color: #fff;
-      text-decoration: underline;
+      border-left: 5px solid #FFD700;
+      padding-left: 10px;
+    }
+
+    .skills ul,
+    .education ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+
+    .skills li,
+    .education li {
+      margin: 10px 0;
+      color: #ddd;
+    }
+
+    .contact p {
+      margin: 8px 0;
     }
 
     footer {
       text-align: center;
       padding: 20px;
-      background: #111;
-      color: #aaa;
+      background: #1c1c1c;
+      color: #777;
       font-size: 0.9rem;
     }
 
-    /* RESPONSIVE untuk HP portrait */
+    /* Responsif untuk HP */
     @media (max-width: 768px) {
       .cover {
         flex-direction: column;
         text-align: center;
-        background: #1c1c1c;
         padding-top: 100px;
       }
-      .cover-text {
-        max-width: 100%;
-        margin-bottom: 20px;
-        color: #fff;
-      }
-      .cover-text h1, .cover-text p {
-        color: #fff;
-        font-size: 1.2rem;
-      }
-      .cover-photo {
-        max-width: 80%;
-        margin: auto;
-      }
       .cover-photo img {
-        max-width: 250px;
+        max-width: 200px;
+        margin-top: 20px;
       }
-      section h2 {
-        font-size: 1.5rem;
-      }
-      section p, section li {
-        font-size: 1rem;
+      header nav a {
+        margin: 0 8px;
+        font-size: 0.9rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigasi -->
-  <nav>
-    <a href="#cover">Beranda</a>
-    <a href="#about">Tentang</a>
-    <a href="#education">Pendidikan</a>
-    <a href="#skills">Keahlian</a>
-    <a href="#contact">Kontak</a>
-  </nav>
+  <header>
+    <nav>
+      <a href="#cover" class="active">Beranda</a>
+      <a href="#about">Tentang</a>
+      <a href="#education">Pendidikan</a>
+      <a href="#skills">Keahlian</a>
+      <a href="#contact">Kontak</a>
+    </nav>
+  </header>
 
   <!-- Cover -->
-  <div id="cover" class="cover fade-in">
+  <div id="cover" class="cover">
     <div class="cover-text">
       <h1>BERNARDUS ALVIANTORO</h1>
       <p>“Lakukanlah segala sesuatu dalam kasih.” – 1 Korintus 16:14</p>
@@ -200,19 +156,23 @@
   </div>
 
   <!-- Tentang Saya -->
-  <section id="about" class="about fade-in">
+  <section id="about">
     <h2>Tentang Saya</h2>
     <p>Saya adalah seorang pelajar yang memiliki kemampuan memimpin, mendengarkan, serta memahami perasaan orang lain. Saya selalu berusaha memotivasi dan membantu orang lain agar dapat mencapai tujuan bersama.</p>
   </section>
 
   <!-- Pendidikan -->
-  <section id="education" class="education fade-in">
+  <section id="education" class="education">
     <h2>Pendidikan</h2>
-    <p>SMA Negeri 4 Jakarta</p>
+    <ul>
+      <li>SD Santo Fransiskus 1</li>
+      <li>SMP Santo Fransiskus 1</li>
+      <li>SMAN 4 Jakarta</li>
+    </ul>
   </section>
 
   <!-- Keahlian -->
-  <section id="skills" class="skills fade-in">
+  <section id="skills" class="skills">
     <h2>Keahlian</h2>
     <ul>
       <li>Dapat memimpin serta memotivasi agar dapat mencapai tujuan bersama</li>
@@ -222,11 +182,11 @@
   </section>
 
   <!-- Kontak -->
-  <section id="contact" class="contact fade-in">
+  <section id="contact" class="contact">
     <h2>Kontak</h2>
-    <p>Email: <a href="mailto:b.alviantoro@gmail.com">b.alviantoro@gmail.com</a></p>
+    <p>Email: <a href="mailto:b.alviantoro@gmail.com" style="color:#aaa;">b.alviantoro@gmail.com</a></p>
     <p>No. HP: 085891280178</p>
-    <p>Instagram: <a href="https://instagram.com/viann.tr" target="_blank">@viann.tr</a></p>
+    <p>Instagram: <a href="https://instagram.com/viann.tr" target="_blank" style="color:#aaa;">@viann.tr</a></p>
   </section>
 
   <footer>
@@ -234,37 +194,27 @@
   </footer>
 
   <script>
-    const faders = document.querySelectorAll('.fade-in');
-    const options = { threshold: 0.2 };
-    const observer = new IntersectionObserver(function(entries, observer) {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, options);
-    faders.forEach(fade => observer.observe(fade));
-
-    // Highlight menu aktif
+    // Highlight menu aktif saat scroll
     const sections = document.querySelectorAll("section, .cover");
-    const navLinks = document.querySelectorAll("nav a");
+    const navLinks = document.querySelectorAll("header nav a");
+
     window.addEventListener("scroll", () => {
       let current = "";
       sections.forEach(section => {
         const sectionTop = section.offsetTop - 100;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+        if (pageYOffset >= sectionTop) {
           current = section.getAttribute("id");
         }
       });
+
       navLinks.forEach(link => {
         link.classList.remove("active");
-        if (link.getAttribute("href").includes(current)) {
+        if (link.getAttribute("href") === "#" + current) {
           link.classList.add("active");
         }
       });
     });
   </script>
+
 </body>
 </html>
