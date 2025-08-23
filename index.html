@@ -8,41 +8,49 @@
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
-      background-color: #111;
-      color: #f1f1f1;
-      line-height: 1.6;
+      background-color: #f5f5f5;
+      color: #222;
     }
 
-    header {
-      text-align: center;
-      padding: 60px 20px;
-      background: #1c1c1c;
+    /* Cover gaya PPT */
+    .cover {
+      display: flex;
+      height: 100vh;
+      background: linear-gradient(135deg, #fff 50%, #1c1c1c 50%);
+      align-items: center;
+      justify-content: flex-start;
+      padding: 40px;
     }
 
-    header h1 {
-      margin: 0;
+    .cover-text {
+      max-width: 50%;
+    }
+
+    .cover-text h1 {
       font-size: 2.5rem;
-      color: #fff;
+      margin: 0;
+      color: #111;
     }
 
-    header p {
-      margin: 10px 0 0;
-      font-size: 1rem;
-      color: #aaa;
+    .cover-text p {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      color: #555;
     }
 
+    /* Bagian isi */
     section {
       padding: 60px 20px;
       max-width: 900px;
       margin: auto;
-      border-bottom: 1px solid #333;
+      border-bottom: 1px solid #ddd;
     }
 
     section h2 {
       font-size: 1.8rem;
       margin-bottom: 20px;
-      color: #fff;
-      border-left: 5px solid #888;
+      color: #111;
+      border-left: 5px solid #555;
       padding-left: 10px;
     }
 
@@ -54,41 +62,52 @@
     .skills li {
       margin: 10px 0;
       padding: 12px;
-      background: #222;
+      background: #eee;
       border-radius: 8px;
-      color: #ddd;
     }
 
-    .contact p {
-      margin: 8px 0;
+    .contact a {
+      color: #333;
+      text-decoration: none;
     }
 
     footer {
       text-align: center;
       padding: 20px;
       background: #1c1c1c;
-      color: #777;
+      color: #fff;
       font-size: 0.9rem;
     }
 
     /* Responsif */
     @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
+      .cover {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        background: #1c1c1c;
+        color: #fff;
       }
-      section h2 {
-        font-size: 1.5rem;
+      .cover-text {
+        max-width: 90%;
+      }
+      .cover-text h1, .cover-text p {
+        color: #fff;
       }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>BERNARDUS ALVIANTORO</h1>
-    <p>“Lakukanlah segala sesuatu dalam kasih.” – 1 Korintus 16:14</p>
-  </header>
+  <!-- Cover -->
+  <div class="cover">
+    <div class="cover-text">
+      <h1>BERNARDUS ALVIANTORO</h1>
+      <p>“Lakukanlah segala sesuatu dalam kasih.” – 1 Korintus 16:14</p>
+    </div>
+  </div>
 
+  <!-- Isi -->
   <section class="about">
     <h2>Tentang Saya</h2>
     <p>Saya adalah seorang pelajar yang memiliki kemampuan memimpin, mendengarkan, serta memahami perasaan orang lain. Saya selalu berusaha memotivasi dan membantu orang lain agar dapat mencapai tujuan bersama.</p>
@@ -110,9 +129,9 @@
 
   <section class="contact">
     <h2>Kontak</h2>
-    <p>Email: <a href="mailto:b.alviantoro@gmail.com" style="color:#aaa;">b.alviantoro@gmail.com</a></p>
+    <p>Email: <a href="mailto:b.alviantoro@gmail.com">b.alviantoro@gmail.com</a></p>
     <p>No. HP: 085891280178</p>
-    <p>Instagram: <a href="https://instagram.com/viann.tr" target="_blank" style="color:#aaa;">@viann.tr</a></p>
+    <p>Instagram: <a href="https://instagram.com/viann.tr" target="_blank">@viann.tr</a></p>
   </section>
 
   <footer>
