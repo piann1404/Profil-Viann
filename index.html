@@ -6,86 +6,97 @@
   <title>Profil Bernardus Alviantoro</title>
   <style>
     body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
       margin: 0;
       padding: 0;
-      background-color: #f4f4f4;
-      color: #333;
     }
-    .container {
-      max-width: 700px;
-      margin: auto;
-      padding: 30px;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      margin-top: 40px;
-    }
-    h1 {
+    header {
       text-align: center;
-      color: #000;
-      font-size: 28px;
+      padding: 40px 20px;
+      background-color: #1e1e1e;
+    }
+    header img {
+      width: 300px;         /* lebar foto */
+      height: 400px;        /* tinggi foto */
+      border-radius: 12px;  /* sudut melengkung */
+      border: 3px solid #888;
+      object-fit: cover;    /* agar proporsional */
+      margin-bottom: 15px;
+    }
+    header h1 {
+      margin: 10px 0;
+      color: #fff;
+    }
+    header p {
+      color: #aaa;
+    }
+    section {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #1e1e1e;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.6);
     }
     h2 {
-      margin-top: 25px;
-      color: #444;
-      border-bottom: 2px solid #ccc;
+      border-bottom: 2px solid #444;
       padding-bottom: 5px;
-      font-size: 20px;
+      margin-bottom: 15px;
+      color: #fff;
     }
     ul {
+      list-style: square;
       padding-left: 20px;
-      line-height: 1.6;
     }
-    p {
-      line-height: 1.6;
-    }
-    .contact a {
-      display: block;
-      margin: 6px 0;
-      color: #222;
+    a {
+      color: #64b5f6;
       text-decoration: none;
-      font-weight: 500;
     }
-    .contact a:hover {
-      color: #555;
+    a:hover {
       text-decoration: underline;
     }
-    .footer {
+    footer {
       text-align: center;
-      margin-top: 30px;
-      padding: 15px;
-      font-size: 14px;
-      background-color: #111;
-      color: #bbb;
-      border-radius: 0 0 10px 10px;
+      padding: 20px;
+      background-color: #1e1e1e;
+      color: #777;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <header>
+    <!-- Foto kamu -->
+    <img src="foto.jpg" alt="Foto Bernardus Alviantoro">
     <h1>Bernardus Alviantoro</h1>
-    
+    <p>Siswa SMAN 4 Jakarta | Calon Pemimpin & Motivator</p>
+  </header>
+
+  <section>
     <h2>Keahlian</h2>
     <ul>
       <li>Mampu memimpin serta memotivasi untuk mencapai tujuan bersama</li>
-      <li>Dapat mendengarkan masalah/cerita seseorang & mencari solusi</li>
+      <li>Dapat mendengarkan masalah orang lain dan membantu mencari solusi</li>
       <li>Mampu memahami perasaan orang lain</li>
     </ul>
-    
+  </section>
+
+  <section>
     <h2>Pendidikan</h2>
     <p>Sedang bersekolah di <strong>SMAN 4 Jakarta</strong></p>
-    
+  </section>
+
+  <section>
     <h2>Kontak</h2>
-    <div class="contact">
-      <a href="mailto:b.alviantoro@gmail.com">📧 b.alviantoro@gmail.com</a>
-      <a href="tel:+6285891280178">📞 085891280178</a>
-      <a href="https://instagram.com/viann.tr" target="_blank">📸 Instagram: @viann.tr</a>
-    </div>
-  </div>
-  
-  <div class="footer">
-    © 2025 Bernardus Alviantoro | All Rights Reserved
-  </div>
+    <p>Email: <a href="mailto:b.alviantoro@gmail.com">b.alviantoro@gmail.com</a></p>
+    <p>No. Tlp: <a href="tel:085891280178">085891280178</a></p>
+    <p>Instagram: <a href="https://instagram.com/viann.tr" target="_blank">@viann.tr</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Bernardus Alviantoro</p>
+  </footer>
 </body>
 </html>
