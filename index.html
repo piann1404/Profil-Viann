@@ -7,92 +7,133 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
-      background-color: #f5f5f5;
-      color: #222;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background-color: #111;
+      color: #f5f5f5;
+      scroll-behavior: smooth;
     }
 
-    /* Cover gaya PPT */
+    /* Navigasi */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      justify-content: center;
+      padding: 12px 0;
+      z-index: 1000;
+      backdrop-filter: blur(6px);
+    }
+    nav a {
+      color: #f5f5f5;
+      text-decoration: none;
+      margin: 0 18px;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #FFD700;
+    }
+    nav a.active {
+      color: #FFD700; /* highlight emas */
+    }
+
+    /* Animasi */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Cover */
     .cover {
       display: flex;
       height: 100vh;
       background: linear-gradient(135deg, #fff 50%, #1c1c1c 50%);
       align-items: center;
       justify-content: space-between;
-      padding: 40px;
+      padding: 80px 40px 40px; /* tambah atas karena ada nav */
     }
-
     .cover-text {
       max-width: 45%;
-      z-index: 2;
     }
-
     .cover-text h1 {
-      font-size: 2.8rem;
+      font-size: 3rem;
       margin: 0;
       color: #111;
     }
-
     .cover-text p {
       margin-top: 10px;
-      font-size: 1.2rem;
-      color: #555;
+      font-size: 1.3rem;
+      color: #444;
     }
-
     .cover-photo {
       max-width: 45%;
       display: flex;
       justify-content: center;
-      align-items: center;
-      position: relative;
     }
-
     .cover-photo img {
       width: 100%;
       max-width: 400px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+      border-radius: 14px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.6);
       border: 4px solid #fff;
     }
 
-    /* Bagian isi */
+    /* Slide Section */
     section {
-      padding: 60px 20px;
-      max-width: 900px;
-      margin: auto;
-      border-bottom: 1px solid #ddd;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 20px 60px;
+      text-align: center;
+    }
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    section p, section li {
+      font-size: 1.1rem;
+      line-height: 1.6;
     }
 
-    section h2 {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      color: #111;
-      border-left: 5px solid #555;
-      padding-left: 10px;
-    }
+    /* Warna tiap slide */
+    .about { background: linear-gradient(135deg, #1c1c1c, #2e2e2e); }
+    .education { background: linear-gradient(135deg, #2e2e2e, #3a3a3a); }
+    .skills { background: linear-gradient(135deg, #3a3a3a, #4a4a4a); }
+    .contact { background: linear-gradient(135deg, #4a4a4a, #555); }
 
     .skills ul {
       list-style: none;
       padding: 0;
+      max-width: 600px;
+      margin: auto;
     }
-
     .skills li {
       margin: 10px 0;
       padding: 12px;
-      background: #eee;
+      background: rgba(255,255,255,0.1);
       border-radius: 8px;
     }
 
     .contact a {
-      color: #333;
-      text-decoration: none;
+      color: #fff;
+      text-decoration: underline;
     }
 
     footer {
       text-align: center;
       padding: 20px;
-      background: #1c1c1c;
-      color: #fff;
+      background: #111;
+      color: #aaa;
       font-size: 0.9rem;
     }
 
@@ -100,13 +141,13 @@
     @media (max-width: 768px) {
       .cover {
         flex-direction: column;
-        justify-content: center;
         text-align: center;
         background: #1c1c1c;
-        color: #fff;
+        padding-top: 100px;
       }
       .cover-text {
         max-width: 90%;
+        color: #fff;
       }
       .cover-text h1, .cover-text p {
         color: #fff;
@@ -115,16 +156,28 @@
         max-width: 80%;
         margin-top: 20px;
       }
-      .cover-photo img {
-        border: 3px solid #fff;
+      nav {
+        flex-wrap: wrap;
+      }
+      nav a {
+        margin: 8px;
       }
     }
   </style>
 </head>
 <body>
 
+  <!-- Navigasi -->
+  <nav>
+    <a href="#cover">Beranda</a>
+    <a href="#about">Tentang</a>
+    <a href="#education">Pendidikan</a>
+    <a href="#skills">Keahlian</a>
+    <a href="#contact">Kontak</a>
+  </nav>
+
   <!-- Cover -->
-  <div class="cover">
+  <div id="cover" class="cover fade-in">
     <div class="cover-text">
       <h1>BERNARDUS ALVIANTORO</h1>
       <p>“Lakukanlah segala sesuatu dalam kasih.” – 1 Korintus 16:14</p>
@@ -134,18 +187,20 @@
     </div>
   </div>
 
-  <!-- Isi -->
-  <section class="about">
+  <!-- Tentang Saya -->
+  <section id="about" class="about fade-in">
     <h2>Tentang Saya</h2>
     <p>Saya adalah seorang pelajar yang memiliki kemampuan memimpin, mendengarkan, serta memahami perasaan orang lain. Saya selalu berusaha memotivasi dan membantu orang lain agar dapat mencapai tujuan bersama.</p>
   </section>
 
-  <section class="education">
+  <!-- Pendidikan -->
+  <section id="education" class="education fade-in">
     <h2>Pendidikan</h2>
     <p>SMA Negeri 4 Jakarta</p>
   </section>
 
-  <section class="skills">
+  <!-- Keahlian -->
+  <section id="skills" class="skills fade-in">
     <h2>Keahlian</h2>
     <ul>
       <li>Dapat memimpin serta memotivasi agar dapat mencapai tujuan bersama</li>
@@ -154,7 +209,8 @@
     </ul>
   </section>
 
-  <section class="contact">
+  <!-- Kontak -->
+  <section id="contact" class="contact fade-in">
     <h2>Kontak</h2>
     <p>Email: <a href="mailto:b.alviantoro@gmail.com">b.alviantoro@gmail.com</a></p>
     <p>No. HP: 085891280178</p>
@@ -165,5 +221,44 @@
     © 2025 Bernardus Alviantoro. Semua Hak Dilindungi.
   </footer>
 
+  <script>
+    // Animasi scroll muncul
+    const faders = document.querySelectorAll('.fade-in');
+    const options = { threshold: 0.2 };
+    const observer = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    faders.forEach(fade => {
+      observer.observe(fade);
+    });
+
+    // Highlight menu aktif
+    const sections = document.querySelectorAll("section, .cover");
+    const navLinks = document.querySelectorAll("nav a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href").includes(current)) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
 </body>
 </html>
