@@ -35,7 +35,7 @@
       color: #FFD700;
     }
 
-    /* Cover dengan background gedung */
+    /* Cover */
     .cover {
       display: flex;
       flex-direction: row;
@@ -45,6 +45,7 @@
       padding: 20px;
       text-align: center;
       background: url("https://images.unsplash.com/photo-1505761671935-60b3a7427bad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80") no-repeat center center/cover;
+      background-attachment: fixed; /* Parallax */
       position: relative;
     }
 
@@ -77,21 +78,49 @@
     }
 
     .cover-photo img {
-      max-width: 300px;
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+.cover-photo img {
+  max-width: 200px;        /* ukuran foto di desktop */
+  width: 100%;
+  height: auto;
+  border-radius: 50%;       /* bikin bulat elegan */
+  border: 3px solid #FFD700; /* bingkai emas */
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 1s ease;
+}
+
+.cover-photo img.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Responsif di HP */
+@media (max-width: 768px) {
+  .cover-photo img {
+    max-width: 150px;  /* lebih kecil di layar hp */
+    margin-top: 20px;
+  }
+}
+    }
+    .cover-photo img.show {
+      opacity: 1;
+      transform: scale(1);
     }
 
     section {
       padding: 80px 20px;
-      max-width: 900px;
-      margin: auto;
+      max-width: 100%;
+      margin: 0;
       border-bottom: 1px solid #333;
       opacity: 0;
       transform: translateY(40px);
       transition: all 0.8s ease;
+      position: relative;
+      color: #f5f5f5;
+      background-attachment: fixed; /* Parallax effect */
+      background-size: cover;
+      background-position: center;
     }
 
     section.show {
@@ -99,10 +128,41 @@
       transform: translateY(0);
     }
 
+    /* Background tiap section */
+    #about {
+      background-image: url("https://images.unsplash.com/photo-1503264116251-35a269479413?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80");
+    }
+    #education {
+      background-image: url("https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80");
+    }
+    #skills {
+      background-image: url("https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80");
+    }
+    #contact {
+      background-image: url("https://images.unsplash.com/photo-1523731407965-2430cd12f5e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80");
+    }
+
+    /* Overlay gelap agar teks tetap terbaca */
+    section::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.65);
+      z-index: 1;
+    }
+
+    section > * {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: auto;
+    }
+
     section h2 {
       font-size: 1.8rem;
       margin-bottom: 20px;
-      color: #fff;
+      color: #FFD700;
       border-left: 5px solid #FFD700;
       padding-left: 10px;
     }
@@ -116,11 +176,7 @@
     .skills li,
     .education li {
       margin: 10px 0;
-      color: #ddd;
-    }
-
-    .contact p {
-      margin: 8px 0;
+      color: #eee;
     }
 
     .contact a {
@@ -140,12 +196,16 @@
       font-size: 0.9rem;
     }
 
-    /* Responsif untuk HP */
+    /* Responsif */
     @media (max-width: 768px) {
       .cover {
         flex-direction: column;
         text-align: center;
         padding-top: 100px;
+        background-attachment: scroll; /* Disable parallax di HP */
+      }
+      section {
+        background-attachment: scroll; /* Disable parallax di HP */
       }
       .cover-photo img {
         max-width: 220px;
@@ -184,7 +244,7 @@
   <!-- Tentang Saya -->
   <section id="about">
     <h2>Tentang Saya</h2>
-    <p>Saya adalah seorang pelajar yang memiliki kemampuan memimpin dalam lingkup kecil, mendengarkan, serta memahami hal yang dirasakan orang lain. Saya selalu belajar cara untuk memotivasi dan membantu orang lain agar dapat mencapai tujuan bersama.</p>
+    <p>Saya adalah seorang pelajar yang memiliki kemampuan memimpin, mendengarkan, serta memahami perasaan orang lain. Saya selalu berusaha memotivasi dan membantu orang lain agar dapat mencapai tujuan bersama.</p>
   </section>
 
   <!-- Pendidikan -->
@@ -201,9 +261,9 @@
   <section id="skills" class="skills">
     <h2>Keahlian</h2>
     <ul>
-      <li>Dapat memimpin serta belajar untuk memotivasi agar dapat mencapai tujuan bersama</li>
+      <li>Dapat memimpin serta memotivasi agar dapat mencapai tujuan bersama</li>
       <li>Dapat mendengarkan masalah/cerita seseorang dan berpikir cara untuk menyelesaikannya</li>
-      <li>Dapat memahami hal yang dirasakan orang lain</li>
+      <li>Dapat memahami perasaan orang lain</li>
     </ul>
   </section>
 
@@ -252,6 +312,14 @@
 
     document.querySelectorAll("section").forEach(sec => {
       observer.observe(sec);
+    });
+
+    // Animasi zoom-in untuk foto profil
+    const profileImg = document.querySelector(".cover-photo img");
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        profileImg.classList.add("show");
+      }, 500);
     });
   </script>
 
