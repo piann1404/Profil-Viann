@@ -4,243 +4,144 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profil - Bernardus Alviantoro</title>
+  <meta name="description" content="Profil Bernardus Alviantoro, pelajar dengan kemampuan memimpin, mendengarkan, dan memahami perasaan orang lain.">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <style>
-  body {
-    margin: 0;
-    font-family: 'Times New Roman', Times, serif;
-    background-color: #111;
-    color: #f5f5f5;
-    scroll-behavior: smooth;
-  }
+    body {
+      margin: 0;
+      font-family: 'Times New Roman', Times, serif;
+      background-color: #111;
+      color: #f5f5f5;
+      scroll-behavior: smooth;
+    }
 
-  header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: #000;
-    padding: 15px 0;
-    text-align: center;
-    z-index: 1000;
-  }
-
-  header nav a {
-    margin: 0 15px;
-    color: #aaa;
-    text-decoration: none;
-    font-weight: bold;
-  }
-
-  header nav a:hover,
-  header nav a.active {
-    color: #FFD700;
-  }
-
-  /* Cover */
-  .cover {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 20px;
-    text-align: center;
-    background: url("https://images.unsplash.com/photo-1505761671935-60b3a7427bad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80") no-repeat center center/cover;
-    background-attachment: fixed;
-    position: relative;
-  }
-
-  .cover::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.35);
-    z-index: 1;
-  }
-
-  .cover-text, .cover-photo {
-    position: relative;
-    z-index: 2;
-    flex: 1;
-    padding: 20px;
-  }
-
-  .cover-text h1 {
-    font-size: 2.5rem;
-    margin: 0;
-    color: #FFD700;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 1s ease;
-  }
-
-  .cover-text p {
-    margin-top: 15px;
-    font-size: 1.1rem;
-    color: #ddd;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 1s ease 0.3s;
-  }
-
-  .cover-text.show h1,
-  .cover-text.show p {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Foto profil */
-  .cover-photo img {
-    max-width: 180px;
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-    border: 3px solid #FFD700;
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-    opacity: 0;
-    transform: scale(0.9);
-    transition: all 1s ease;
-  }
-
-  .cover-photo img.show {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  section {
-    padding: 80px 20px;
-    max-width: 100%;
-    margin: 0;
-    border-bottom: 1px solid #333;
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease;
-    position: relative;
-    color: #f5f5f5;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-  }
-
-  section.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Animasi konten di section */
-  section h2, section p, section li {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
-  }
-
-  section.show h2 {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0.2s;
-  }
-
-  section.show p,
-  section.show li {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0.4s;
-  }
-
-  /* Background tiap section */
-  #about {
-    background-image: url("https://images.unsplash.com/photo-1503264116251-35a269479413?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80");
-  }
-  #education {
-    background-image: url("https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80");
-  }
-  #skills {
-    background-image: url("https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80");
-  }
-  #contact {
-    background-image: url("https://images.unsplash.com/photo-1523731407965-2430cd12f5e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80");
-  }
-
-  section::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.35);
-    z-index: 1;
-  }
-
-  section > * {
-    position: relative;
-    z-index: 2;
-    max-width: 900px;
-    margin: auto;
-  }
-
-  section h2 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    color: #FFD700;
-    border-left: 5px solid #FFD700;
-    padding-left: 10px;
-  }
-
-  .skills ul,
-  .education ul {
-    list-style: disc;
-    padding-left: 20px;
-  }
-
-  .skills li,
-  .education li {
-    margin: 10px 0;
-    color: #eee;
-  }
-
-  .contact a {
-    color: #FFD700;
-    text-decoration: none;
-  }
-
-  .contact a:hover {
-    text-decoration: underline;
-  }
-
-  footer {
-    text-align: center;
-    padding: 20px;
-    background: #1c1c1c;
-    color: #777;
-    font-size: 0.9rem;
-  }
-
-  /* Responsif */
-  @media (max-width: 768px) {
-    .cover {
-      flex-direction: column;
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #000;
+      padding: 15px 0;
       text-align: center;
-      padding-top: 100px;
-      background-attachment: scroll;
+      z-index: 1000;
     }
-    section {
-      background-attachment: scroll;
-    }
-    .cover-photo img {
-      max-width: 140px;
-      margin-top: 20px;
-    }
+
     header nav a {
-      margin: 0 8px;
+      margin: 0 15px;
+      color: #aaa;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    header nav a:hover,
+    header nav a.active {
+      color: #FFD700;
+    }
+
+    .cover {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #1c1c1c;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .cover-text {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .cover-text h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    .cover-text p {
+      margin-top: 15px;
+      font-size: 1.1rem;
+      color: #bbb;
+    }
+
+    .cover-photo {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cover-photo img {
+      max-width: 200px;
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      border: 3px solid #FFD700;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 900px;
+      margin: auto;
+      border-bottom: 1px solid #333;
+    }
+
+    section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #fff;
+      border-left: 5px solid #FFD700;
+      padding-left: 10px;
+    }
+
+    .skills ul,
+    .education ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+
+    .skills li,
+    .education li {
+      margin: 10px 0;
+      color: #ddd;
+    }
+
+    .contact p {
+      margin: 8px 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #1c1c1c;
+      color: #777;
       font-size: 0.9rem;
     }
-  }
+
+    /* Responsif untuk HP */
+    @media (max-width: 768px) {
+      .cover {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 100px;
+      }
+      .cover-photo img {
+        max-width: 150px;
+        margin-top: 20px;
+      }
+      header nav a {
+        margin: 0 8px;
+        font-size: 0.9rem;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
   <header>
-    <nav>
+    <nav aria-label="Navigasi utama">
+      <a href="#cover" class="active">Beranda</a>
       <a href="#about">Tentang</a>
       <a href="#education">Pendidikan</a>
       <a href="#skills">Keahlian</a>
@@ -249,71 +150,75 @@
   </header>
 
   <!-- Cover -->
-  <section class="cover">
-    <div class="cover-text" id="cover-text">
-      <h1>Bernardus Alviantoro</h1>
-      <p>Profesional di bidang [isi bidang anda], berdedikasi untuk karya dan inovasi.</p>
+  <section id="cover" class="cover">
+    <div class="cover-text">
+      <h1>BERNARDUS ALVIANTORO</h1>
+      <p>“Lakukanlah segala sesuatu dalam kasih.” – 1 Korintus 16:14</p>
     </div>
     <div class="cover-photo">
-      <img src="foto-profil.jpg" alt="Foto Profil" id="profile-photo">
+      <img src="1756028482118.jpg" alt="Foto Bernardus Alviantoro">
     </div>
   </section>
 
-  <!-- About -->
+  <!-- Tentang Saya -->
   <section id="about">
     <h2>Tentang Saya</h2>
-    <p>Saya adalah seorang profesional dengan pengalaman dalam [bidang anda], memiliki keahlian dalam [spesialisasi anda], serta berkomitmen untuk memberikan hasil terbaik dalam setiap pekerjaan.</p>
+    <p>Saya adalah seorang pelajar yang memiliki kemampuan memimpin, mendengarkan, serta memahami perasaan orang lain. Saya selalu berusaha memotivasi dan membantu orang lain agar dapat mencapai tujuan bersama.</p>
   </section>
 
-  <!-- Education -->
-  <section id="education">
+  <!-- Pendidikan -->
+  <section id="education" class="education">
     <h2>Pendidikan</h2>
     <ul>
-      <li>[Nama Universitas] - [Gelar], [Tahun]</li>
-      <li>[Nama Sekolah] - [Jurusan], [Tahun]</li>
+      <li>SD Santo Fransiskus 1</li>
+      <li>SMP Santo Fransiskus 1</li>
+      <li>SMAN 4 Jakarta</li>
     </ul>
   </section>
 
-  <!-- Skills -->
+  <!-- Keahlian -->
   <section id="skills" class="skills">
     <h2>Keahlian</h2>
     <ul>
-      <li>Keahlian 1</li>
-      <li>Keahlian 2</li>
-      <li>Keahlian 3</li>
+      <li>Dapat memimpin serta memotivasi agar dapat mencapai tujuan bersama</li>
+      <li>Dapat mendengarkan masalah/cerita seseorang dan berpikir cara untuk menyelesaikannya</li>
+      <li>Dapat memahami perasaan orang lain</li>
     </ul>
   </section>
 
-  <!-- Contact -->
+  <!-- Kontak -->
   <section id="contact" class="contact">
     <h2>Kontak</h2>
-    <p>Email: <a href="mailto:emailanda@example.com">emailanda@example.com</a></p>
-    <p>LinkedIn: <a href="#">linkedin.com/in/username</a></p>
+    <p>Email: <a href="mailto:b.alviantoro@gmail.com" style="color:#aaa;">b.alviantoro@gmail.com</a></p>
+    <p>No. HP: 085891280178</p>
+    <p>Instagram: <a href="https://instagram.com/viann.tr" target="_blank" rel="noopener noreferrer" style="color:#aaa;">@viann.tr</a></p>
   </section>
 
-  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Bernardus Alviantoro. Semua Hak Dilindungi.</p>
+    © 2025 Bernardus Alviantoro. Semua Hak Dilindungi.
   </footer>
 
   <script>
-    // Animasi foto & teks di cover
-    window.addEventListener("load", () => {
-      document.getElementById("profile-photo").classList.add("show");
-      document.getElementById("cover-text").classList.add("show");
-    });
+    // Highlight menu aktif saat scroll
+    const sections = document.querySelectorAll("section, .cover");
+    const navLinks = document.querySelectorAll("header nav a");
 
-    // Animasi section saat discroll
-    const sections = document.querySelectorAll("section");
-    const showOnScroll = () => {
-      const trigger = window.innerHeight * 0.85;
-      sections.forEach(sec => {
-        const rect = sec.getBoundingClientRect();
-        if (rect.top < trigger) sec.classList.add("show");
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute("id");
+        }
       });
-    };
-    window.addEventListener("scroll", showOnScroll);
-    showOnScroll();
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+    });
   </script>
 
 </body>
